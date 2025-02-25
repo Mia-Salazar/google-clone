@@ -1,7 +1,7 @@
 # Google Clone
 
 ## Live
-The web is live [here]()
+The web is live [here](https://googleclonev1exercise.netlify.app/)
 
 ## Comands
 To run the application:
