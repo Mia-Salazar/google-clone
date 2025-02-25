@@ -5,4 +5,8 @@
     padding: 8px;
 
     margin-top: 16px;
+
+    &:disabled {
+        opacity: 0.5;
+    }
 }

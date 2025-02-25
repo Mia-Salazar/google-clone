@@ -1,19 +1,27 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 import useGetData from '../../hooks/useGetData';
 import './Header.scss';
+import { Form } from '..';
 
 const DOTS = 9;
 
 const Header = () => {
+  const location = useLocation();
+  const isHome = location.pathname === '/home' || location.pathname === '/';
   const data = useGetData(1);
   const { image } = data[0];
 
   return (
-    <header className="header">
-      <h1 className="header__title">
-        Agile content <span className="header__subtitle">Frontend</span>
-      </h1>
+    <header className={isHome ? 'header' : 'header header--has-search'}>
+      {isHome ? (
+        <h1 className="header__title">
+          Agile content <span className="header__subtitle">Frontend</span>
+        </h1>
+      ) : (
+        <Form isHome={isHome} />
+      )}
       <div className="header__container">
         <div className="header__menu">
           {[...Array(DOTS)].map((_, index) => (

@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 
 import { Layout } from './components';
-import { Home } from './pages';
+import { Home, Results } from './pages';
 
 import './App.css';
 
@@ -21,6 +21,10 @@ const routes = [
       {
         path: '/home',
         element: <Home />,
+      },
+      {
+        path: '/results',
+        element: <Results />,
       },
     ],
   },

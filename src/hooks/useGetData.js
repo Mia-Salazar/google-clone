@@ -6,8 +6,7 @@ const getImage = () =>
 const getType = () => faker.animal.type();
 const getUrl = () => faker.internet.url();
 const getText = () => faker.lorem.sentences();
-const getTitle = (type) =>
-  faker.animal[type] ? faker.animal[type]() : 'Unknown Animal';
+const getTitle = (type) => '';
 
 const useGetData = (count = 100) => {
   const data = useMemo(() => {

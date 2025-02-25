@@ -21,7 +21,7 @@
     &__search {
         position: absolute;
         left: 16px;
-        top: 12px;
+        top: calc(50% - 8px);
 
         margin: 0;
     }
@@ -29,7 +29,8 @@
     &__delete-button {
         position: absolute;
         right: 16px;
-        top: 12px;
+        top: calc(50% - 8px);;
+        padding: 0;
 
         border: none;
         background: transparent;

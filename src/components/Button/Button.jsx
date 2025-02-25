@@ -1,7 +1,7 @@
 import './Button.scss';
 
-const Input = ({ onClick, isDisbaled }) => (
-  <button className="button" disabled={isDisbaled} onClick={onClick}>
+const Input = ({ isDisbaled }) => (
+  <button className="button" disabled={isDisbaled}>
     Buscar
   </button>
 );
