@@ -52,6 +52,4 @@ npm run build
 │   └───pages: Pages made with React used for the routes
 │       ├───Home
 │       └───Results
-│   └───services: API calls
-│        └───hooks: react query hooks
 </pre>
