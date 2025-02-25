@@ -1,18 +1,17 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { vi } from 'vitest';
-import { MemoryRouter } from 'react-router-dom';
-import Home from '../Home';
 import userEvent from '@testing-library/user-event';
+import { MemoryRouter } from 'react-router-dom';
 
-// Mock de useNavigate
+import Home from '../Home';
+
 const mockNavigate = vi.fn();
 
-// Aseguramos que MemoryRouter y otros métodos se mantienen como originales
 vi.mock('react-router-dom', async (importOriginal) => {
-  const actual = await importOriginal(); // Importar el módulo original
+  const actual = await importOriginal();
   return {
     ...actual,
-    useNavigate: () => mockNavigate, // Mock de useNavigate
+    useNavigate: () => mockNavigate,
   };
 });
 

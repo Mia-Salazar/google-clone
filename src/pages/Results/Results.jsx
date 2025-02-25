@@ -14,9 +14,11 @@ const Results = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const { data, isLoading, getTypes } = useGetData({
     count: 100,
-    delay: 2000,
+    delay: 500,
     query: searchTerm,
   });
+
+  console.log(searchTerm, 'searchTerm');
 
   const handleSelectSearch = (id) => {
     const selectedAnimal = data.find((element) => element.id === id);
