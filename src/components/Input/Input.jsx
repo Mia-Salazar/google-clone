@@ -13,7 +13,7 @@ const Input = ({ onSubmit, onChange, onDelete, value }) => {
 
   return (
     <div className="input">
-      <label htmlFor="text" className="input__text">
+      <label htmlFor="search" className="input__text">
         Buscar
       </label>
       <figure className="input__search">
@@ -33,7 +33,11 @@ const Input = ({ onSubmit, onChange, onDelete, value }) => {
         className="input__field"
         onKeyDown={(event) => handleOnKeyDown(event)}
       />
-      <button className="input__delete-button" onClick={onDelete}>
+      <button
+        className="input__delete-button"
+        onClick={onDelete}
+        aria-label="delete"
+      >
         <figure className="input__delete-wrapper">
           <FontAwesomeIcon
             color="gray"
