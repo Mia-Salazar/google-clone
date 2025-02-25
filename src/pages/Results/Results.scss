@@ -1,12 +1,13 @@
 .results {
-    display: grid;
-
     padding: 32px 8px;
-    max-width: 1400px;
 
     @media (min-width: 992px) {
-        grid-template-columns: 60% 40%;
+        display: grid;
+        grid-template-columns: 60% 39%;
+        grid-gap: 1%;
         padding: 32px 16px;
+        margin: 0 auto;
+        max-width: 1300px;
     }
 
     &__bold {
