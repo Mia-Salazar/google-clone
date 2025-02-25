@@ -18,9 +18,8 @@ const Form = ({ isHome }) => {
   };
 
   const handleSubmit = (event) => {
-    console.log(search);
     event.preventDefault();
-    navigate(`/results?${encodeURIComponent(search)}`);
+    navigate(`/results?search=${encodeURIComponent(search)}`);
   };
 
   return (

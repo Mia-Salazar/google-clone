@@ -8,37 +8,57 @@ const getUrl = () => faker.internet.url();
 const getText = () => faker.lorem.sentences();
 const getTitle = (type) => `${type} - ${faker.lorem.words(3)}`;
 
-const useGetData = (count = 100, delay = 2000) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+const useGetData = ({ count = 100, delay = 2000, query = '' }) => {
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const generateData = () => {
+    return [...new Array(count)].map((_, index) => {
+      const type = getType();
+      return {
+        type,
+        id: index + 1,
+        url: getUrl(),
+        title: getTitle(type),
+        description: getText(),
+        image: getImage(),
+      };
+    });
+  };
 
   useEffect(() => {
-    setLoading(true);
+    setIsLoading(true);
+
+    const allData = generateData();
+    const formattedQuery = query?.trim().toLowerCase();
 
     const fetchData = () => {
-      const newData = [...new Array(count)].map((_, index) => {
-        const type = getType();
+      const filteredData = allData.filter(
+        (item) =>
+          item.type.toLowerCase().includes(formattedQuery) ||
+          item.title.toLowerCase().includes(formattedQuery)
+      );
 
-        return {
-          type,
-          id: index + 1,
-          url: getUrl(),
-          title: getTitle(type),
-          description: getText(),
-          image: getImage(),
-        };
-      });
-
-      setData(newData);
-      setLoading(false);
+      setData(filteredData);
+      setIsLoading(false);
     };
 
     const timeout = setTimeout(fetchData, delay);
 
     return () => clearTimeout(timeout);
-  }, [count, delay]);
+  }, [count, query, delay]);
 
-  return { data, loading };
+  const getRandomAnimalTypes = (count = 13) => {
+    const uniqueAnimals = new Set();
+
+    while (uniqueAnimals.size < count) {
+      uniqueAnimals.add(faker.animal.type());
+    }
+
+    return Array.from(uniqueAnimals);
+  };
+
+  return { data, isLoading, getTypes: getRandomAnimalTypes };
 };
 
 export default useGetData;

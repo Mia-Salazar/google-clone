@@ -1,0 +1,25 @@
+.skeleton {
+    list-style-type: none;
+    padding-top: 32px;
+
+    &__line {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 16px;
+    }
+
+    &__title, &__subtitle, &__description {
+        height: 24px;
+        background-color: gainsboro;
+        width: 40%;
+        margin-bottom: 8px;
+    }
+
+    &__subtitle {
+        width: 60%;
+    }
+
+    &__description {
+        width: 80%;
+    }
+}

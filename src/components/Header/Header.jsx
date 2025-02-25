@@ -28,7 +28,7 @@ const Header = () => {
           ))}
         </div>
         <figure className="header__img-wrapper">
-          <img src={data?.[0].image} alt="" className="header__img" />
+          <img src={data?.[0]?.image} alt="" className="header__img" />
         </figure>
       </div>
     </header>
