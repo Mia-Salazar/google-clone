@@ -1,8 +1,57 @@
-# React + Vite
+# Google Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live
+The web is live [here]()
 
-Currently, two official plugins are available:
+## Comands
+To run the application:
+```console
+npm run dev
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To run tests:
+```console
+npm run test
+```
+
+To run the lintern:
+```console
+npm run lint:fix
+```
+
+To generate a build:
+```console
+npm run build
+```
+
+## Technologies
+- React: Library used for the whole application
+- SCSS: For styling
+- Vitest: For testing
+- Eslint & prettier: Format and linter
+
+## Architecture
+<pre>
+├───src
+|   main.jsx: the root app
+|   App.css: general styles
+|   App.jsx: file responsible for rendering pages
+│   ├───assets: static images and CSS variables
+│   ├───components: React components used in pages
+│   │   ├───Button
+│   │   ├───Card
+│   │   ├───Footer
+│   │   ├───Form
+│   │   ├───Header
+│   │   ├───Input
+│   │   ├───Layout
+│   │   ├───NoResults
+│   │   ├───Selected
+│   │   └───Skeleton
+│   ├───hooks: fake.js data generator
+│   └───pages: Pages made with React used for the routes
+│       ├───Home
+│       └───Results
+│   └───services: API calls
+│        └───hooks: react query hooks
+</pre>
