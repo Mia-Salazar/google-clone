@@ -18,8 +18,6 @@ const Results = () => {
     query: searchTerm,
   });
 
-  console.log(searchTerm, 'searchTerm');
-
   const handleSelectSearch = (id) => {
     const selectedAnimal = data.find((element) => element.id === id);
     setSelected(selectedAnimal);
