@@ -10,8 +10,7 @@ const DOTS = 9;
 const Header = () => {
   const location = useLocation();
   const isHome = location.pathname === '/home' || location.pathname === '/';
-  const data = useGetData(1);
-  const { image } = data[0];
+  const { data } = useGetData(1);
 
   return (
     <header className={isHome ? 'header' : 'header header--has-search'}>
@@ -29,7 +28,7 @@ const Header = () => {
           ))}
         </div>
         <figure className="header__img-wrapper">
-          <img src={image} alt="" className="header__img" />
+          <img src={data?.[0].image} alt="" className="header__img" />
         </figure>
       </div>
     </header>

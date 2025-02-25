@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { faker } from '@faker-js/faker';
 
 const getImage = () =>
@@ -6,25 +6,39 @@ const getImage = () =>
 const getType = () => faker.animal.type();
 const getUrl = () => faker.internet.url();
 const getText = () => faker.lorem.sentences();
-const getTitle = (type) => '';
+const getTitle = (type) => `${type} - ${faker.lorem.words(3)}`;
 
-const useGetData = (count = 100) => {
-  const data = useMemo(() => {
-    return [...new Array(count)].map((_, index) => {
-      const type = getType();
+const useGetData = (count = 100, delay = 2000) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-      return {
-        type,
-        id: index + 1,
-        url: getUrl(),
-        title: getTitle(type),
-        description: getText(),
-        image: getImage(),
-      };
-    });
-  }, [count]);
+  useEffect(() => {
+    setLoading(true);
 
-  return data;
+    const fetchData = () => {
+      const newData = [...new Array(count)].map((_, index) => {
+        const type = getType();
+
+        return {
+          type,
+          id: index + 1,
+          url: getUrl(),
+          title: getTitle(type),
+          description: getText(),
+          image: getImage(),
+        };
+      });
+
+      setData(newData);
+      setLoading(false);
+    };
+
+    const timeout = setTimeout(fetchData, delay);
+
+    return () => clearTimeout(timeout);
+  }, [count, delay]);
+
+  return { data, loading };
 };
 
 export default useGetData;
