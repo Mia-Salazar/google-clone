@@ -7,6 +7,7 @@ import Button from './Button/Button';
 import Skeleton from './Skeleton/Skeleton';
 import Card from './Card/Card';
 import NoResults from './NoResults/NoResults';
+import Selected from './Selected/Selected';
 
 export {
   Form,
@@ -18,4 +19,5 @@ export {
   Skeleton,
   Card,
   NoResults,
+  Selected,
 };
