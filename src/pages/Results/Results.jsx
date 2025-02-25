@@ -23,8 +23,8 @@ const Results = () => {
   return (
     <section className="results">
       <ul>
-        {data.map((animal) => (
-          <Card key={animal.id} />
+        {data.map(({ id, url, title, description }) => (
+          <Card key={id} url={url} title={title} description={description} />
         ))}
       </ul>
     </section>

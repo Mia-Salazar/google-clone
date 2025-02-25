@@ -2,8 +2,10 @@ import './Card.scss';
 
 const Card = ({ url, title, description }) => (
   <li className="card">
-    <span className="card__title">{url}</span>
-    <span className="card__subtitle">{title}</span>
+    <a href={url} className="card__url">
+      {url}
+    </a>
+    <span className="card__title">{title}</span>
     <span className="card__description">{description}</span>
   </li>
 );
